@@ -1,0 +1,2 @@
+# casual_strategy_game
+ゲームAI開発のためのラフなストラテジーゲーム
