@@ -66,6 +66,16 @@ class Game:
     def get_sum_prosperity(self, camp_id):
         return sum([i.prosperity for i in self.get_our_nodes(camp_id)])
 
+    def get_neighbor_camps(self, camp_id):
+        # 隣接するノードの列挙
+        neighbors_id = []
+        for m in self.get_our_nodes(camp_id):
+            add = [i.node_id for i in m.neighbor_nodes]
+            for a in add:
+                if a not in neighbors_id:
+                    neighbors_id.append(a)
+        return [self.get_node(i) for i in neighbors_id]
+
     def make_entire_map(self, map_size):
         answer = [Map_node(i) for i in range(map_size)]
         # 暫定的に環状のネットワークを作成する
